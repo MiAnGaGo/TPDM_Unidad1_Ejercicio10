@@ -2,47 +2,61 @@ package mx.edu.ittepic.tpdm_unidad1_ejercicio10
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var usuario : EditText ?=null
-    var contra : EditText ?= null
-    var auten : Button?=null
-    var us = arrayOf("toro","apus","toto","SIU","yoli")
-    var con = arrayOf("12345","poj","a4s","CR7","pha")
-    var c = 0
-    var imgL : ImageView ?= null
+    var layu : LinearLayout?= null
+    var usuar : EditText ?= null
+    var contras : EditText ?= null
+    var aceptar : Button ?= null
+    var usuarios = arrayOf("toro","apus","toto","SIU","yoli")
+    var contraseñas = arrayOf("12345","poj","a4s","CR7","pha")
+    var aux = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        usuario= findViewById(R.id.usuario)
-        contra = findViewById(R.id.contra)
-        auten = findViewById(R.id.auten)
-        imgL = findViewById(R.id.imagen)
+        var imgLogin = ImageView(this)
+        layu = findViewById(R.id.linLayu)
+        layu?.addView(imgLogin)
+
+        usuar = findViewById(R.id.usuario)
+        contras = findViewById(R.id.contraseña)
+        aceptar = findViewById(R.id.btnEntrar)
 
 
+        imgLogin.setImageResource(R.drawable.login)
+        btnEntrar?.setOnClickListener {
+            if (usuario?.text.toString().equals(usuarios.get(0)) && contraseña?.text.toString().equals(contraseñas.get(0))) {
+                Toast.makeText(this, "ACEPTADO", Toast.LENGTH_LONG).show()
+                imgLogin.setImageResource(R.drawable.toro110)
 
-        auten?.setOnClickListener {
-            if (usuario?.text.toString().equals(us.get(0)) && contra?.text.toString().equals(con.get(0))) {
-                Toast.makeText(this, "SESION INICIADA", Toast.LENGTH_LONG).show()
-            }
-            else if (usuario?.text.toString().equals(us.get(1)) && contra?.text.toString().equals(con.get(1))) {
-                Toast.makeText(this, "SESION INICIADA", Toast.LENGTH_LONG).show()
-            } else if (usuario?.text.toString().equals(us.get(2)) && contra?.text.toString().equals(con.get(2))) {
-                Toast.makeText(this, "SESION INICIADA", Toast.LENGTH_LONG).show()
-            } else if (usuario?.text.toString().equals(us.get(3)) && contra?.text.toString().equals(con.get(3))) {
-                Toast.makeText(this, "SESION CORRECTA", Toast.LENGTH_LONG).show()
-            } else if (usuario?.text.toString().equals(us.get(4)) && contra?.text.toString().equals(con.get(4))) {
-                Toast.makeText(this, "sesion correcta", Toast.LENGTH_LONG).show()
+            } else if (usuario?.text.toString().equals(usuarios.get(1)) && contraseña?.text.toString().equals(contraseñas.get(1))) {
+                Toast.makeText(this, "ACEPTADO", Toast.LENGTH_LONG).show()
+                imgLogin.setImageResource(R.drawable.apus110)
+
+            } else if (usuario?.text.toString().equals(usuarios.get(2)) && contraseña?.text.toString().equals(contraseñas.get(2))) {
+                Toast.makeText(this, "ACEPTADO", Toast.LENGTH_LONG).show()
+                imgLogin.setImageResource(R.drawable.toto110)
+
+            } else if (usuario?.text.toString().equals(usuarios.get(3)) && contraseña?.text.toString().equals(contraseñas.get(3))) {
+                Toast.makeText(this, "ACEPTADO", Toast.LENGTH_LONG).show()
+                imgLogin.setImageResource(R.drawable.siuuu110)
+
+            } else if (usuario?.text.toString().equals(usuarios.get(4)) && contraseña?.text.toString().equals(contraseñas.get(4))) {
+                Toast.makeText(this, "ACEPTADO", Toast.LENGTH_LONG).show()
+                imgLogin.setImageResource(R.drawable.yoli110)
+
             } else {
-                Toast.makeText(this, "ERROR", Toast.LENGTH_LONG).show()
-                c++
-                if(c>=3){
+                var total = aux +1
+                Toast.makeText(this, "RECHAZADO intento: "+total, Toast.LENGTH_LONG).show()
+                aux++
+
+
+                if (aux >= 3) {
+                    Toast.makeText(this, "RECHAZADO"+'\n'+"Intento: "+aux, Toast.LENGTH_LONG).show()
                     finish()
                 }
             }

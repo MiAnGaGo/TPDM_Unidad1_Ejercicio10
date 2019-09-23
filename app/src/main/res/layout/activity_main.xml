@@ -11,47 +11,57 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUTENTIFICACION"
+        android:text="AUTENTICACION"
         android:textSize="20dp"
-        android:paddingTop="10dp"
-        android:layout_gravity="center"
-        android:textColor="#000"/>
-    <ImageView
-        android:layout_width="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/login"
-        android:layout_gravity="center"
-        android:id="@+id/imagen"/>
+        android:id="@+id/linLayu"
+        android:orientation="vertical">
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USUARIO:"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
         android:textColor="#000"
-        android:layout_marginTop="20dp"/>
+        />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/usuario"
         android:ems="10"
-        android:id="@+id/usuario"/>
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CONTRASEÑA:"
-        android:paddingTop="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
         android:textColor="#000"
-        android:layout_marginTop="20dp"/>
+        />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/contraseña"
         android:ems="10"
-        android:id="@+id/contra"/>
+        />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUTENTIFICAR"
-        android:id="@+id/auten"/>
-
-
+        android:text="Autenticar"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnEntrar"
+        />
 </LinearLayout>
